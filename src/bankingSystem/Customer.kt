@@ -1,5 +1,0 @@
-package bankingSystem
-
-
-     class Customer() {
-}
