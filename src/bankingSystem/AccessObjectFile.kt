@@ -16,7 +16,6 @@ class AccessObjectFile {
             }
             val outStream = ObjectOutputStream(file)
 
-
             // Method for serialization of object
             outStream.writeObject(obj)
 
