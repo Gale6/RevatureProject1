@@ -8,16 +8,16 @@ class AddDeleteFromSystem {
 
         fun add(myAccount: Account){
 
-            var objectPath:String = myAccount.userName + ".ser"
+            val objectPath:String = myAccount.username + ".ser"
 
             var listPath:String = if (!myAccount.Approved){
                 "registrationList.txt"
             }else{
-                myAccount.userType + "List.txt"
+                "accountList.txt"
             }
             //update list file
             var myArray = AccessListFile.readFromFile(listPath)
-            myArray.add(myAccount.userName)
+            myArray.add(myAccount.username)
             AccessListFile.writeToFile(listPath,myArray)
             //write to file
             AccessObjectFile.writeToFile(objectPath,myAccount)
@@ -28,23 +28,23 @@ class AddDeleteFromSystem {
             myAccount.Approved = true
             //update list file
             var myArray = AccessListFile.readFromFile("registrationList.txt")
-            myArray.remove(myAccount.userName)
+            myArray.remove(myAccount.username)
             AccessListFile.writeToFile("registrationList.txt",myArray)
             add(myAccount)
         }
 
         fun delete(myAccount: Account){
 
-            var objectPath:String = myAccount.userName + ".ser"
+            var objectPath:String = myAccount.username + ".ser"
 
             var listPath:String = if (!myAccount.Approved){
                 "registrationList.txt"
             }else{
-                myAccount.userType + "List.txt"
+                "accountList.txt"
             }
             //update list file
             var myArray = AccessListFile.readFromFile(listPath)
-            myArray.remove(myAccount.userName)
+            myArray.remove(myAccount.username)
             AccessListFile.writeToFile(listPath,myArray)
 
             //delete object file
